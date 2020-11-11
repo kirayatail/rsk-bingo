@@ -1,6 +1,6 @@
 # Rsk-bingo
 
-A bingo app for the podcast "Rollspelsklubben
+A bingo app for the podcast [Rollspelsklubben](https://rollspelsklubben.com/)
 
 ## Requirements
 

@@ -1,11 +1,13 @@
 "Du hittar ju bara på"
+"Du slår ju inte tärningarna!"
 "Finna dolda ting"
-"Krossa Kattriarkatet"
 "Krossa Patriarkatet"
+"Min karaktär är ju sämst"
 "Nej det gör du inte"
 "Så att säga"
 "Spritsa"
 "Vad kul att du frågar!"
+Alkohol eller droger konsumeras
 Bedininininin...
 Cranford-klanen
 Dalmål
@@ -18,9 +20,11 @@ Finlandsvenska
 Göteborgare
 Gotländska
 Härmar en kändis
+Isak säger: "Och mycket riktigt..."
 Kan jag försegla?
 Könsumgänge
 Någon drar en ordvits
+Någon fumlar
 Någon gör en Leroy Jenkins
 Någon har återuppstått
 Någon klär sig i kroppsdelar
@@ -31,6 +35,7 @@ Norrbottniska
 Norska
 Palissad för i helvete!
 Rovor serveras
+Ser ut som en cowboystad
 Skånska
 Slog du verkligen på det?
 Småländska
@@ -40,3 +45,7 @@ Spelare blir av med kroppsdel
 Stalagmit och/eller Stalaktit
 Stank kallas doft
 Tyska
+Latrin
+Namn påminner om kändis
+Isak fumlar på en/ett
+Karaktär drar sin catchphrase
