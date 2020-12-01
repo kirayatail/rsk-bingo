@@ -50,7 +50,6 @@ tileCss =
     [ width (vw 18)
     , height (vw 18)
     , boxSizing borderBox
-    , border3 (px 1) solid (rgb 0 0 0)
     , displayFlex
     , justifyContent center
     , alignItems center
@@ -58,9 +57,23 @@ tileCss =
     , textAlign center
     ]
 
+uncheckedTileCss: Attribute msg
+uncheckedTileCss = 
+    css 
+    [ border3 (px 1) solid (rgb 0 0 0)
+
+    ]
+
 checkedTileCss: Attribute msg
 checkedTileCss =
     css
     [ backgroundColor (rgb 141 196 243)
+    , border3 (px 1) solid (rgb 0 0 0)
+    ]
 
+bingoTileCss : Attribute msg
+bingoTileCss = 
+    css 
+    [ backgroundColor (rgb 255 238 170)
+    , border3 (px 5) dotted (rgb 255 204 0)
     ]

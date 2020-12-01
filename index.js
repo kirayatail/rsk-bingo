@@ -25,13 +25,13 @@ function makeBoard() {
   const board = lodash.take(lodash.shuffle(allTiles), 24).map((t, i) => {
     return {
       text: t,
-      index: i,
+      index: i < 12 ? i : i+1,
       checked: false
     }
   });
   board.splice(12, 0, {
     text: lodash.shuffle(freeTiles)[0],
-    index: 25,
+    index: 12,
     checked: true
   });
   return board

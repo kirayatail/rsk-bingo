@@ -49,3 +49,5 @@ Latrin
 Namn påminner om kändis
 Isak fumlar på en/ett
 Karaktär drar sin catchphrase
+"Vad har du i psyke?"
+"Vad har du i smidighet?"

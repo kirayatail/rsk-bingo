@@ -45,16 +45,6 @@ update msg model =
                     (content, Cmd.none)
                 Err _ -> 
                     (model, Cmd.none)
-        
-flip: Int -> List Tile -> List Tile
-flip idx board = 
-    case board of
-        h :: t ->
-            if idx == h.index && idx /= 25 then
-                ({h | checked = not h.checked}) :: t
-            else
-                h :: (flip idx t)
-        [] -> []
 
 view: Model -> Html Msg
 view model = 
@@ -65,3 +55,32 @@ view model =
 subscriptions: Model -> Sub Msg
 subscriptions model =
     Sub.none
+
+-------------------------------------------------------
+
+flip: Int -> List Tile -> List Tile
+flip idx board = 
+    case board of
+        h :: t ->
+            -- Tile ID 12 is the center, free space
+            if idx == h.index && idx /= 12 then
+                ({h | checked = not h.checked}) :: t
+            else
+                h :: (flip idx t)
+        [] -> []
+
+tileChecked: Tile -> Bool
+tileChecked tile = tile.checked
+
+rowBingo: List Tile -> Tile -> Bool
+rowBingo board tile =
+    let row = tile.index // 5 in
+    List.all tileChecked <| List.filter (\t -> t.index // 5 == row) board
+
+colBingo: List Tile -> Tile -> Bool
+colBingo board tile = 
+    let col = modBy 5 tile.index in
+    List.all tileChecked <| List.filter (\t -> (modBy 5 t.index) == col) board
+
+bingo: List Tile -> Tile -> Bool
+bingo board tile = (rowBingo board tile) || (colBingo board tile)

@@ -8420,7 +8420,7 @@ var $author$project$Main$flip = F2(
 		if (board.b) {
 			var h = board.a;
 			var t = board.b;
-			return (_Utils_eq(idx, h.cd) && (idx !== 25)) ? A2(
+			return (_Utils_eq(idx, h.cd) && (idx !== 12)) ? A2(
 				$elm$core$List$cons,
 				_Utils_update(
 					h,
@@ -8766,7 +8766,12 @@ var $author$project$Style$checkedTileCss = $rtfeldman$elm_css$Html$Styled$Attrib
 	_List_fromArray(
 		[
 			$rtfeldman$elm_css$Css$backgroundColor(
-			A3($rtfeldman$elm_css$Css$rgb, 141, 196, 243))
+			A3($rtfeldman$elm_css$Css$rgb, 141, 196, 243)),
+			A3(
+			$rtfeldman$elm_css$Css$border3,
+			$rtfeldman$elm_css$Css$px(1),
+			$rtfeldman$elm_css$Css$solid,
+			A3($rtfeldman$elm_css$Css$rgb, 0, 0, 0))
 		]));
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 0, a: a};
@@ -8787,10 +8792,10 @@ var $rtfeldman$elm_css$Html$Styled$Events$on = F2(
 			event,
 			$elm$virtual_dom$VirtualDom$Normal(decoder));
 	});
-var $rtfeldman$elm_css$Html$Styled$Events$onClick = function (msg) {
+var $rtfeldman$elm_css$Html$Styled$Events$onMouseDown = function (msg) {
 	return A2(
 		$rtfeldman$elm_css$Html$Styled$Events$on,
-		'click',
+		'mousedown',
 		$elm$json$Json$Decode$succeed(msg));
 };
 var $rtfeldman$elm_css$Css$textAlign = function (fn) {
@@ -8808,11 +8813,6 @@ var $author$project$Style$tileCss = $rtfeldman$elm_css$Html$Styled$Attributes$cs
 			$rtfeldman$elm_css$Css$height(
 			$rtfeldman$elm_css$Css$vw(18)),
 			$rtfeldman$elm_css$Css$boxSizing($rtfeldman$elm_css$Css$borderBox),
-			A3(
-			$rtfeldman$elm_css$Css$border3,
-			$rtfeldman$elm_css$Css$px(1),
-			$rtfeldman$elm_css$Css$solid,
-			A3($rtfeldman$elm_css$Css$rgb, 0, 0, 0)),
 			$rtfeldman$elm_css$Css$displayFlex,
 			$rtfeldman$elm_css$Css$justifyContent($rtfeldman$elm_css$Css$center),
 			$rtfeldman$elm_css$Css$alignItems($rtfeldman$elm_css$Css$center),
@@ -8820,31 +8820,35 @@ var $author$project$Style$tileCss = $rtfeldman$elm_css$Html$Styled$Attributes$cs
 			$rtfeldman$elm_css$Css$vw(2.5)),
 			$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center)
 		]));
+var $author$project$Style$uncheckedTileCss = $rtfeldman$elm_css$Html$Styled$Attributes$css(
+	_List_fromArray(
+		[
+			A3(
+			$rtfeldman$elm_css$Css$border3,
+			$rtfeldman$elm_css$Css$px(1),
+			$rtfeldman$elm_css$Css$solid,
+			A3($rtfeldman$elm_css$Css$rgb, 0, 0, 0))
+		]));
 var $author$project$Tile$view = function (tile) {
+	var baseAttrs = _List_fromArray(
+		[
+			$author$project$Style$tileCss,
+			$rtfeldman$elm_css$Html$Styled$Events$onMouseDown(
+			$author$project$Common$CheckTile(tile.cd))
+		]);
 	return A2(
 		$rtfeldman$elm_css$Html$Styled$div,
 		function () {
 			var _v0 = tile.b2;
 			if (_v0) {
-				return _List_fromArray(
-					[
-						$author$project$Style$tileCss,
-						$author$project$Style$checkedTileCss,
-						$rtfeldman$elm_css$Html$Styled$Events$onClick(
-						$author$project$Common$CheckTile(tile.cd))
-					]);
+				return A2($elm$core$List$cons, $author$project$Style$checkedTileCss, baseAttrs);
 			} else {
-				return _List_fromArray(
-					[
-						$author$project$Style$tileCss,
-						$rtfeldman$elm_css$Html$Styled$Events$onClick(
-						$author$project$Common$CheckTile(tile.cd))
-					]);
+				return A2($elm$core$List$cons, $author$project$Style$uncheckedTileCss, baseAttrs);
 			}
 		}(),
 		function () {
 			var _v1 = tile.cd;
-			if (_v1 === 25) {
+			if (_v1 === 12) {
 				return _List_fromArray(
 					[
 						$rtfeldman$elm_css$Html$Styled$text(tile.cv),

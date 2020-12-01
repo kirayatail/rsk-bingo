@@ -1,12 +1,9 @@
 module Tile exposing (..)
-import Html.Styled exposing (Html, br, div, text)
+import Html.Styled exposing (Html, br, div, text, button)
 import Common exposing (Tile, Msg(..))
 import Html.Styled.Attributes exposing (class)
-import Html.Styled.Events exposing (onClick)
-import Style exposing (tileCss)
-import Style exposing (checkedTileCss)
-
-
+import Html.Styled.Events exposing (onMouseDown)
+import Style exposing (bingoTileCss, checkedTileCss, tileCss, uncheckedTileCss)
 
 makeTile: Int -> Tile
 makeTile idx =
@@ -16,19 +13,17 @@ makeTile idx =
     }
 
 view: Tile -> Html Msg
-view tile = div 
+view tile =
+    let baseAttrs = [ tileCss, onMouseDown (CheckTile tile.index)] in
+    div 
     (case tile.checked of
         True -> 
-            [ tileCss, checkedTileCss
-            , onClick (CheckTile tile.index)
-            ]
+            checkedTileCss :: baseAttrs
         False ->
-            [ tileCss 
-            , onClick (CheckTile tile.index)
-            ]
+            uncheckedTileCss :: baseAttrs
     )
     (case tile.index of
-        25 ->
+        12 ->
             [ text tile.text, br [] [], text "(fri ruta)"]
         default ->    
             [ text tile.text ]
