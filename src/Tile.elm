@@ -12,13 +12,16 @@ makeTile idx =
     , checked = False
     }
 
-view: Tile -> Html Msg
-view tile =
+view: (Tile -> Bool) -> Tile -> Html Msg
+view bingo tile =
     let baseAttrs = [ tileCss, onMouseDown (CheckTile tile.index)] in
     div 
     (case tile.checked of
         True -> 
-            checkedTileCss :: baseAttrs
+            if bingo tile then 
+                bingoTileCss :: baseAttrs
+            else
+                checkedTileCss :: baseAttrs
         False ->
             uncheckedTileCss :: baseAttrs
     )

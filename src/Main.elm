@@ -49,7 +49,7 @@ update msg model =
 view: Model -> Html Msg
 view model = 
     div [mainCss] [ (Header.view model.header)
-    , div [boardCss] (List.map Tile.view model.board)
+    , div [boardCss] (List.map (Tile.view (bingo model.board)) model.board)
     ]
 
 subscriptions: Model -> Sub Msg
