@@ -82,5 +82,16 @@ colBingo board tile =
     let col = modBy 5 tile.index in
     List.all tileChecked <| List.filter (\t -> (modBy 5 t.index) == col) board
 
+diagBingo: List Tile -> Tile -> Bool
+diagBingo board tile = 
+    let 
+        desc = [0, 6, 12, 18, 24]
+        asc = [4, 8, 12, 16, 20]
+        check lst = 
+            List.all tileChecked (List.filter (\t -> (List.any (\i -> t.index == i) lst)) board)
+            && List.any (\i -> tile.index == i) lst
+    in
+        (check desc) || (check asc)
+
 bingo: List Tile -> Tile -> Bool
-bingo board tile = (rowBingo board tile) || (colBingo board tile)
+bingo board tile = (rowBingo board tile) || (colBingo board tile) || (diagBingo board tile)

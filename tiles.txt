@@ -19,8 +19,15 @@ En svartalv vrålar
 Finlandsvenska
 Göteborgare
 Gotländska
-Härmar en kändis
-Isak säger: "Och mycket riktigt..."
+Någon härmar en kändis
+I bröstet
+I huvudet
+I höger arm
+I höger ben
+I vänster arm
+I vänster ben
+Isak glömmer/ändrar ett namn
+Isak säger "Och mycket riktigt..."
 Kan jag försegla?
 Könsumgänge
 Någon drar en ordvits
@@ -37,7 +44,7 @@ Palissad för i helvete!
 Rovor serveras
 Ser ut som en cowboystad
 Skånska
-Slog du verkligen på det?
+"Slog du verkligen på det?"
 Småländska
 Söderslang
 Spelare attackerar varandra

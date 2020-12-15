@@ -8474,6 +8474,35 @@ var $author$project$Main$colBingo = F2(
 				},
 				board));
 	});
+var $author$project$Main$diagBingo = F2(
+	function (board, tile) {
+		var desc = _List_fromArray(
+			[0, 6, 12, 18, 24]);
+		var check = function (lst) {
+			return A2(
+				$elm$core$List$all,
+				$author$project$Main$tileChecked,
+				A2(
+					$elm$core$List$filter,
+					function (t) {
+						return A2(
+							$elm$core$List$any,
+							function (i) {
+								return _Utils_eq(t.cd, i);
+							},
+							lst);
+					},
+					board)) && A2(
+				$elm$core$List$any,
+				function (i) {
+					return _Utils_eq(tile.cd, i);
+				},
+				lst);
+		};
+		var asc = _List_fromArray(
+			[4, 8, 12, 16, 20]);
+		return check(desc) || check(asc);
+	});
 var $author$project$Main$rowBingo = F2(
 	function (board, tile) {
 		var row = (tile.cd / 5) | 0;
@@ -8489,7 +8518,7 @@ var $author$project$Main$rowBingo = F2(
 	});
 var $author$project$Main$bingo = F2(
 	function (board, tile) {
-		return A2($author$project$Main$rowBingo, board, tile) || A2($author$project$Main$colBingo, board, tile);
+		return A2($author$project$Main$rowBingo, board, tile) || (A2($author$project$Main$colBingo, board, tile) || A2($author$project$Main$diagBingo, board, tile));
 	});
 var $rtfeldman$elm_css$VirtualDom$Styled$Attribute = F3(
 	function (a, b, c) {
